@@ -3,31 +3,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Peter Pommergård Lind">
+    <meta name="description" content="Provides update and newest research in Computational Finance from Peter Lind.">
+    <meta property="og:image" content="images/portraet2.jpg"> <!-- Facebook tag to show image when linking my site on facebook -->
+    <meta property="og:description" content="Provides update and newest research in Computational Finance from Peter Lind."><!-- Facebook tag to show image when linking my site on facebook -->
+    <meta property="og:title" content="Research: Peter Pommergård Lind"><!-- Facebook tag to show image when linking my site on facebook -->
+    <meta name="twitter:title" content="Research: Peter Pommergård Lind">
     <link href="styles/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-	<title>Peter Pommergård Lind: Home</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon is a small icon to your browser-->
+    <script src="scripts/main.js" defer></script>
+	<title>Research: Peter Pommergård Lind</title>
 </head>
 <body>
 <header>
-    <h1>Peter Pommergård Lind</h1>
-    <a href="index.html"> <img src="images/portraet2.jpg" alt="Peter Lind"></a>
+    <h1 id="h1">Peter Pommergård Lind</h1>
+    <a href="index.html"> <img src="images/portraet2.jpg" alt="" width="800"
+     height="600"></a>
     <p>Ph.D. Fellow in Finance</p>
     <p>ppl@business.aau.dk</p>
 </header>
+<nav>
+    <ul>
+        <li>Home</li>
+        <li><a href="contact.html"> Contact</a> </li>
+    </ul>
+</nav>
 <main>
     <article>
         <h2>Machine learning models in Finance</h2>
         <p>
             Peter has a Bachelor’s and a Master’s degree in Actuarial Mathematics from the University of Copenhagen. 
-            During his Master’s Peter was abroad at the University of Wisconsin-Madison specializing in Computer Science and Finance. 
-            His thesis investigated Machine Learning models for option pricing. Peter’s research interests are numerical methods as well as machine learning in option pricing, trading strategies, and risk management. 
-            His research investigates a better understanding of the financial market, which affects everybody indirectly or directly through e.g. pension savings. 
+            During his Master’s, Peter was abroad at the University of Wisconsin-Madison, specializing in Computer Science and Finance. 
+            His thesis investigated Machine Learning models for option pricing. Peter’s research interests are numerical methods as well as <em>machine learning</em> in <em>option pricing</em>, trading strategies, and risk management. 
+            His research investigates a better understanding of the financial market, which affects everybody indirectly or directly through, e.g., pension savings. 
         </p>
         <p>
-            Peter is currently researching complex exotic options. The exotic options investigated are types of basket options, but the method can be applied to a wide range of options.
-            These options are known to be hard to risk monitor and price, hence a better understanding of those products is the key to better allocate capital. 
-            Peter is working on applying deep learning techniques to an optimal stopping problem for pricing exotic American options.
-
+            Peter is currently researching complex, exotic options. The exotic options investigated are types of <strong>basket options</strong>, but the method can be applied to a wide range of options.
+            These options are hard to monitor and price; hence a better understanding of those products is the key to better allocating capital. 
+            Peter is working on applying deep learning techniques to an optimal stopping problem for pricing exotic American options. <abbr title="least squares Monte Carlo method">LSM</abbr>
         </p>
     </article>
     <article>
@@ -36,14 +50,15 @@
         </h2>
         <ol>
             <li>
-                Overcoming the Feature Selection Issue in the Pricing of American Options, <a href="url"> SSRN </a>, <a href="https://github.com/MrPPL/LSM"> Github repository </a>
+                Overcoming the Feature Selection Issue in the Pricing of American Options (Working Paper), 
+                <a href="url"> SSRN</a>, <a href="https://github.com/MrPPL/FNNMC", title="Jump to Github repository", target="_blank"> Github repository </a>
             </li>
         </ol>
     </article>
 
 <!-- Skills and intrest section -->
     <article>
-        <h2>Education</h2>
+        <h2 id="Education">Education</h2>
         <ul>
             <li>Ph.D. Fellow in Computational Finance, Machine Learning in Finance, Today-2021</li>
             <li>Cand.act., Thesis: Classical Option Pricing Theory and Extensions to Deep Learning, 2020-2015</li>
@@ -56,9 +71,20 @@
             <li>Software Design at PFA, Peter worked in PFA as an actuary designing software solutions for the pension & insurance policy system, 2 years</li>
         </ul>
     </article>
-	<footer>
-		<small>Copyright © 2021 - Last updated 16/10/2021</small>
-	</footer>
+    <aside>
+        <h2>Table of Contents</h2>
+
+        <ul>
+          <li><a href="index.html#Education">Education</a></li>
+          <li><a href="index.html#h1">Title</a></li>
+          <li><a href="#">Although in the North of England</a></li>
+          <li><a href="#">It never stops raining</a></li>
+          <li><a href="#">Oh well...</a></li>
+        </ul>
+      </aside>
 </main>
+<footer>
+    <small>Copyright © 2021 - Last updated <time datetime="2022-01-22">22 January 2022</time></small>
+</footer>
 </body>
 </html>

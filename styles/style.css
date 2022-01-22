@@ -28,3 +28,8 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+
+a:visited {
+  color: rgb(197, 131, 243);
+}
