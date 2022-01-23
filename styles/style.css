@@ -5,17 +5,11 @@ html {
 }
 
 body {
-  width: 800px;
-  margin: 0 auto;
+  width: 0 auto;
+  margin: 0;
   background-color: #ffffff;
   padding: 0 20px 20px 20px;
-  border: 5px solid black;
-}
-
-h1 {
-  margin: 0;
-  padding: 20px 0; /* top and bottom 20 px and 0 on the left and right */
-  color: #000000;
+  /*border: 5px solid black;*/
 }
 
 p, li {
@@ -24,12 +18,59 @@ p, li {
   letter-spacing: 1px;
 }
 
-img {
-  display: block;
-  margin: 0 auto;
-}
-
-
 a:visited {
   color: rgb(197, 131, 243);
+}
+
+h1 {
+  padding: 15px 0 0 0px; /* top and bottom 20 px and 0 on the left and right */
+  color: #000000;
+  margin: 0;
+  background: rgb(179,179,179);
+  background: linear-gradient(90deg, rgba(179,179,179,1) 17%, rgba(112,112,112,1) 38%);
+}
+h1 + p {
+  font-size: 0.8em;
+  padding: 0 0 0 10px;
+  margin: 0;
+  background: rgb(179,179,179);
+  background: linear-gradient(90deg, rgba(179,179,179,1) 17%, rgba(112,112,112,1) 38%);
+}   
+
+
+h1 a:visited, h1 a:link {
+  color: #000000; /*Remove default color of links in title*/
+  text-decoration: none;
+}
+
+.media img {
+  max-width: 100%;
+}
+
+/* Classes */
+.media {
+    display: grid;
+}
+
+/* SiteWite */
+/* Nav Bar */
+nav ul {
+  margin: 0;
+}
+nav li {
+  line-height: 0px;
+  display: inline-block;
+  position: relative;
+  float: right;
+  padding: 15.0px;
+  border: 1px solid #333333;
+  background-color: #000000;
+  color:#ffffff
+}
+nav li > a:visited, nav li > a:link {
+  color: #ffffff; /*Remove default color of links in navbar*/
+}
+nav li a:hover {
+  background-color: rgb(66, 28, 40);
+  color: #fff;
 }
