@@ -18,10 +18,21 @@ a:visited {
   color: rgb(197, 131, 243);
 }
 
+footer{
+    grid-column: span 2;
+}
+
 
 /* SiteWite */
 
 /* User defined classes */
+.frontpageinfo{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+
+
 .menu {
     display: grid;
     grid-template-columns: 1fr auto;
