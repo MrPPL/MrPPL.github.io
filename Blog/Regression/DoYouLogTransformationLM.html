@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Peter Pommergård Lind">
+        <meta name="description" content="Log transformation of linear regression">
+        <link href="../../styles/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <script src="../../scripts/main.js" defer></script>
+        <title>When it is to Log-Transform your Independent (y) and Dependent variables (x)?</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <!-- MathJax -->
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    </head>
+    <body>
+    <div class="menu">
+        <header>
+            <h1>Peter Pommergård Lind</h1>
+            <p>Ph.D. Fellow in Computational Finance</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="contact.html">Contact</a> </li>
+                <li>Blog</li>
+            </ul>
+        </nav>
+    </div>
+        <h1> Is there a Universal Explaination for Economical Inequality?</h1>
+        <p>
+            A casual observer at differences in people wealth will observe that around 80 percent of the wealth of the world is concentrated by 20 percent.
+            Is a logical mathematical explaination for this phenomenon or it is the outcome of policy making. Many people would claim that the second reason it is the most 
+            compelling, but I believe it is the outcome of a special structure based on a positive feedback effects from human interactions.
+        </p>
+        <p>
+            If you investigate social science data you will observe a pattern that repeats itself. You will see a proportional a scale for most such as .
+        </p>
+        <h2>Power laws in daily SPX returns</h2>
+        <p>
+            If it is the first time you see Black-Scholes Formula for a European call option, you might be confused where the formula comes from. Originally  
+            \[S(T)=s\cdot e^{(r-\frac{1}{2}\sigma^2)(T-t)+\sigma(W_T^Q-W_t^Q)}\]
+        </p>
+        <h2>Proof using Risk Neutral Valuation Formula</h2>
+        \[ c(t,s)=e^{-r(T-t)} E_{t,s}^Q[max{S(T)-K,0}]=e^{-r(T-t)} E_{t,s}^Q[(S(T)-K)1_{S(T)>K}] = e^{-r(T-t)} E_{t,s}^Q[S(T)1_{S(T)>K}] - e^{-r(T-t)} K \cdot Q(S(T)>K)\]
+        We look at each two terms separately:
+        \[ Q(S(T)>K) = Q(s\cdot e^{(r-\frac{1}{2}\sigma^2)(T-t)+\sigma(W_T^Q-W_t^Q)}>K)=Q(Y>\frac{1}{\sigma \sqrt{T-t}} \bigg(\ln(\frac{K}{s}) - (r-\frac{1}{2}\sigma^2)(T-t) )\bigg)=
+        Q(-Y < d_2(t,s)) =\Phi(d_2(t,s)) \]
+        \[ E_{t,s}^Q[S(T)1_{\{S(T)>K\}}] =E_{t,s}^Q[s\cdot e^{(r-\frac{1}{2}\sigma^2)(T-t)+\sigma(W_T^Q-W_t^Q)}1_{\{s\cdot e^{(r-\frac{1}{2}\sigma^2)(T-t)+\sigma(W_T^Q-W_t^Q)}>K\}}]=
+        s\cdot e^{(r-\frac{1}{2}\sigma^2)(T-t)}E_{t,s}^Q[e^{\sigma \cdot \sqrt{T-t}\cdot Y}1_{\{Y>-d_2(t,s)\}}] \overset{(*)}{=} s\cdot e^{r(T-t)} \Phi(d_1(t,s))\]
+
+        \begin{align}
+        (*) E_{t,s}^Q[e^{\sigma \cdot \sqrt{T-t}\cdot Y}1_{\{Y>-d_2(t,s)\}}]&=\frac{1}{\sqrt{2\pi}} \int_{-d_2(t,s)}^\infty e^{\sigma \cdot \sqrt{T-t}\cdot y} e^{-\frac{y^2}{2}} dy\\
+        &=\frac{1}{\sqrt{2\pi}}\int_{-d_2(t,s)}^\infty e^{\sigma \cdot \sqrt{T-t}\cdot y-\frac{y^2}{2}-\frac{1}{2}\sigma^2} e^{\frac{\sigma^2}{2}} dy\\ 
+        &=\frac{1}{\sqrt{2\pi}}e^{\frac{\sigma^2}{2}} \int_{-d_2(t,s)}^\infty e^{-\frac{1}{2}(y-\sqrt{T-t}\cdot \sigma)}  dy\\ 
+        &=e^{\frac{\sigma^2}{2}} Q(X>-d_2(t,s))=Q(X-\sigma\sqrt{T-t}>-d_2(t,s)-\sigma\sqrt{T-t}) \quad where \ X\sim \mathcal{N}(\sigma \sqrt{T-t},1)\\
+        &=e^{\frac{\sigma^2}{2}} \Phi(d_1(t,s)) 
+        \end{align}
+        By above calculations we get:
+        \[ c(t,s)=e^{-r(T-t)} E_{t,s}^Q[S(T)1_{S(T)>K}] - e^{-r(T-t)} K \cdot Q(S(T)>K)=s\Phi(d_1(t,s))-e^{-r(T-t)}\cdot K \Phi(d_2(t,s))) \]
+
+        <footer>
+            <hr>
+            <p>Author: Peter Pommerg&aring;rd Lind</p>
+            <p><a href="mailto:ppl_peter@protonmail.com">ppl_peter@protonmail.com</a></p>
+            <a href="https://www.linkedin.com/in/peter-pommergaard-lind/"> <i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/peter.p.lind/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/_mrppl/"> <i class="fab fa-instagram-square"></i></a>
+            <time> 23. Januar 2021 </time>
+            <br>
+            <q>You were hired because you met expectations, you will be promoted if you can exceed them</q>
+            Saji Ijiyemi 
+        </footer> 
+    </body>
+</html>
