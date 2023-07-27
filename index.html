@@ -1,121 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Peter Pommergård Lind">
-    <meta name="description" content="Provides update and newest research in Computational Finance from Peter Lind.">
-    <meta property="og:image" content="images/portraet2.jpg"> <!-- Facebook tag to show image when linking my site on facebook -->
-    <meta property="og:description" content="Provides update and newest research in Computational Finance from Peter Lind."><!-- Facebook tag to show image when linking my site on facebook -->
-    <meta property="og:title" content="Research: Peter Pommergård Lind"><!-- Facebook tag to show image when linking my site on facebook -->
-    <meta name="twitter:title" content="Research: Peter Pommergård Lind">
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="scripts/main.js" defer></script>
-	<title>Research: Peter Pommergård Lind</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Peter Lind</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-    <div class="menu">
-        <header>
-            <h1>Peter Pommergård Lind</h1>
-            <p>Ph.D. Fellow in Computational Finance</p>
-        </header>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="contact.html">Contact</a> </li>
-                <li><a href="teaching.html">Teaching Activities</a> </li>
-                <!--<li><a href="Blog/index.html">Blog</a></li>-->
-            </ul>
-        </nav>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/portræt2.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Peter Lind</a></h1>
+        <div class="social-links mt-3 text-center">
+          <!--<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
+          <!--<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>-->
+          <!--<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>-->
+          <!--<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>-->
+          <a href="https://www.linkedin.com/in/peter-pommergaard-lind/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Research Interets</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Teaching Portfolio</span></a></li>
+          <!--<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
     </div>
-    <main>
-        <section class="frontpageinfo">
-            <section>
-            <article>
-                <h2>Machine learning methods in Option Theory</h2>
-                <p>
-                    Welcome to the website of Peter Pommergaard Lind, a Ph.D. student in the field of Quantitative Finance at Aalborg University. 
-                    My research focuses on the applications of machine learning in option theory.
-                </p>
-                <p>
-                    Option theory is a branch of Quantitative Finance that deals with the pricing and modeling options. 
-                    These instruments give their holders the right, but not the obligation, 
-                    to buy or sell an underlying asset(s) at a predetermined price and time(s). 
-                    The use of machine learning in option theory has the potential to improve the accuracy 
-                    and efficiency of derivative pricing and risk management.
-                </p>
+  </header><!-- End Header -->
 
-                <p>
-                    As a Ph.D. student, I have had the opportunity to work with leading researchers in the field and to contribute to the development 
-                    of novel machine learning techniques for option pricing and risk management. In addition to my research, I have also been involved 
-                    in teaching and mentoring activities. I have served as a teaching assistant for 
-                    Continuous Time Finance, Financial Derivative, Numerical Analysis, etc.. at Copenhagen and Aalborg University, 
-                    and have mentored undergraduate and Masters students in their research projects.
-                </p>
-                
-                <p>
-                    Peter’s research interests are numerical methods as well as <em>machine learning</em> in <em>option pricing</em>, trading strategies, and risk management. 
-                    His research investigates neural networks applied to contingent claims, where the aim is more accurate prices and a better understanding of neural networks.
-                    Peter's first paper investigates the feature selection issue in the <abbr title="least squares Monte Carlo method">LSM</abbr> model for pricing American-style options.
-                    The paper shows the neural network model <abbr title="feedforward neural network Monte Carlo method">FNNMC</abbr> price estimates are more accurate for basket options. Furthermore, 
-                    the method overcomes the feature selection issue by training the network. 
-                </p>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Peter Lind</h1>
+      <p>I'm Researcher in <span class="typed" data-typed-items="Option Theory, Machine Learning, Numerical Methods, Finance"></span></p>
+    </div>
+  </section><!-- End Hero -->
 
-                <p>
-                    Thank you for visiting my website. If you have any questions or would like to learn more about my research, 
-                    please do not hesitate to contact me.
-                </p>
+  <main id="main">
 
-                <p>
-                    Best regards,
-                    Peter Pommergård Lind
-                </p>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
 
-            </article>
-            <article>
-                <h2>
-                    <ins><strong>Research</strong></ins> 
-                </h2>
-                <ol>
-                    <li>
-                        Overcoming the Feature Selection Issue in the Pricing of American Options (Working Paper), 
-                        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4014593" target="_blank"> SSRN</a>, <a href="https://github.com/MrPPL/FNNMC" title="Jump to Github repository" target="_blank"> Github repository </a>
-                    </li>
-                </ol>
-            </article>
-        <!-- Skills and intrest section -->
-            <article>
-                <h2>Education</h2>
+        <div class="section-title">
+          <h2>About</h2>
+          <p>
+            I'm Peter Lind, and I'm a Ph.D.-Fellow in Finance at Aalborg University.       
+            My research focus and interests are on applications of machine learning in option theory. 
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/portræt2.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Ph.D.-Fellow in Finance at Aalborg University.</h3>
+            <p class="fst-italic">
+                Currently, I'm seeking a Ph.D. in Finance specializing in machine learning and option theory. 
+                I have a Bachelor’s and a Master’s degree in Actuarial Mathematics from University of Copenhagen.
+                Some of my work experience include 2 years at PFA as an Actuary and several years teaching at University of Copenhagen.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
                 <ul>
-                    <li>Ph.D. Fellow in Computational Finance, Machine Learning in Finance, Today-2021</li>
-                    <li>Cand.act., Thesis: Classical Option Pricing Theory and Extensions to Deep Learning, 2020-2015</li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>8 July 1995</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Papers:</strong> <span><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4962154">SSRN</a></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+45 51 15 78 81</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA and Aalborg, Denmark</span></li>
                 </ul>
-            </article>
-            <article>
-                <h2>Experience</h2>
+              </div>
+              <div class="col-lg-6">
                 <ul>
-                    <li>Teaching Assistant at University of Copenhagen, "Continuous Time Finance", "Numerical Analysis", "Topics in Non-Life Insurance", "Econometrics 2: Statistical Analysis of Econometric Time Series", …, two years</li>
-                    <li>Software Design at PFA, Peter worked in PFA as an actuary designing software solutions for the pension & insurance policy system, two years</li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>28</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Cand. act.</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ppl@business.aau.dk</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Job:</strong> <span>Ph.D.-Fellow in Finance</span></li>
                 </ul>
-            </article>
-            </section>
-            <section class="shortBio">
-                <article>
-                    <a> <img src="images/portraet2.3.jpg" alt="" width="400" height="300"></a>
-                    <h2>Short Bio</h2>
-                    <p>
-                        Peter has a Bachelor’s and a Master’s degree in Actuarial Mathematics from the University of Copenhagen. 
-                        During his Master’s, Peter was abroad at the University of Wisconsin-Madison, specializing in Computer Science and Finance. His thesis investigated Machine Learning methods in Finance. 
-                    </p>
-                </article>
-            </section>
-        </section>
-    </main>
-<footer>
-    <small>Copyright © 2021 - Last updated <time datetime="2022-01-22">22 January 2022</time></small>
-</footer>
+              </div>
+            </div>
+            <p>
+                I'm a sport enthusiast, and I love to play all kinds of sports such as table football, soccer, tennis, etc...
+                Other interests are card games, computer science, mathematics, and trading. 
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Research Interest</h2>
+          <p>
+            I am interested in machine learning for Finance. More specifically, I'm curious to develope faster and more precise methods for option valuation 
+            and calibration. In my research, I combine the classical option theory methods with modern methods such as neural networks, tree regression, and 
+            differential machine learning to produce powerful tools for trading and risk management.        
+            I want to apply these tools to complex, real-world problems, changing the world. 
+            In my work I have e.g. developed a new Monte Carlo method to valuate American options using a neural network <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4014593">"Overcoming the Feature Selection Issue in the Pricing of American Options".</a>
+          </p>
+          <!--
+          <ul>
+            <li>Expertise in Machine Learning and Numerical Methods</li>
+            <li>Strong background in probability theory, stochastic calculus, and statistics.</li>
+            <li>
+                Strong programming skills in Python. Knowledge of machine learning libraries and frameworks
+                through experience working with Tensorflow, Keras, and PyTorch. Experience working with
+                numerical and data science libraries such as scikit-learn, SciPy, NumPy, Pandas, and Jupyter.
+            </li>
+            <li>
+                Experience in Java, R, C++, and Julia.
+            </li>
+            <li>
+                In-depth knowledge of financial instruments and markets. Understanding financial risks and
+                how to manage and transfer them
+            </li>
+          </ul>
+        -->
+        </div>
+<!--
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+            <div class="count-box">
+              <i class="bi bi-emoji-smile"></i>
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Happy Clients</strong> consequuntur quae</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="count-box">
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="count-box">
+              <i class="bi bi-headset"></i>
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="count-box">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    -->
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <!--
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="progress">
+              <span class="skill">PHP <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Photoshop <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    --><!-- End Skills Section -->
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>Peter Lind</h4>
+              <p><em> Ph.D. fellow in Finance (Quantitative Finance) at Aalborg University Business School. 
+                Studying option pricing and machine learning methods in Finance.</em></p>
+              <ul>
+                <li>Fibigerstræde 2, office 44</li>
+                <li>+45 51 15 78 81</li>
+                <li><a href="mailto:ppl@business.aau.dk?subject=The%20subject%20of%20the%20email">ppl@business.aau.dk</a></li>
+              </ul>
+            </div>
+            
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Ph.D. in Finance</h4>
+              <h5>Expected graduation date: 2024</h5>
+              <p><em>Aalborg University, Business School, Aalborg</em></p>
+              <p><b>Keywords:</b> Option Theory, Machine Learning, Numerical Method, Deep Learning, Optimal Stopping</p>
+             <!-- <p><b>Courses:</b> Continuous Time Finance II at UCPH by Rolf Poulsen, Econometrics II at UCPH by Thomas Mikosch (Fall 21),
+                    Advanced Asset Pricing at CBS, Python Scientific Computing at AAU, The Volatility Surface at Baruch by Jim Gatheral (audited), 
+                    Modeling and Trading Derivatives at Columbia by Amal Moussa (audited), Quant. Finance PDE Methods at ETH (audited), and 
+                    Python Scientific Computing
+              </p>-->
+            </div>
+            <div class="resume-item">
+              <h4>M.S. in Actuarial Mathematics</h4>
+              <h5>Graduated 2020</h5>
+              <p><em>University of Copenhagen, Department of Mathematics, Copenhagen</em></p>
+              <p><b>Thesis:</b> Classical Option Pricing Theory and Extensions to Deep Learning</p>
+            </div>
+            <div class="resume-item">
+              <h4>B.S. in Actuarial Mathematics</h4>
+              <h5>Graduated 2019</h5>
+              <p><em>University of Copenhagen, Department of Mathematics, Copenhagen</em></p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Employment</h3>
+            <div class="resume-item">
+              <h4>Ph.D. Fellow in Finance</h4>
+              <h5>2021 - Present</h5>
+              <p><em>Aalborg University, Aalborg, Denmark </em></p>
+              <ul>
+                <li>Researching in Machine Learning and Numerical Methods Option Theory</li>
+                <!--<li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
+                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                -->
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Internship: Front Office Research Analyst</h4>
+              <h5>Summer 2023</h5>
+              <p><em>Norlys Energy Trading, Aalborg, Denmark </em></p>
+              <ul>
+                <li>Developed a valuation model for gas storage and optimal execution</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Teaching Assistant</h4>
+              <h5>2019 - 2022</h5>
+              <p><em>University of Copenhagen, Copenhagen, Denmark</em></p>
+              <p>Held exercise classes for both undergraduate and graduate students at Aalborg University and 
+                at University of Copenhagen (see below in 'Teaching Portfolio' for more details).
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Actuary</h4>
+              <h5>2019 - 2021</h5>
+              <p><em>PFA Pension, Copenhagen, Denmark</em></p>
+              <p> Numerical software design and solutions handling the biggest Danish pension fund internal policy system.
+              </p>
+            </div>
+
+            <div class="resume-item">
+              <h4>Internship: Front Office Student Assistant</h4>
+              <h5>Summer 2020</h5>
+              <p><em>PFA Asset Management, Copenhagen, Denmark</em></p>
+              <p> Took the charge in implementing efficient routines for interest rate curve interpolation/extrapolation 
+                (Monotone Convex and Smith-Wilson) for the internal Quant library.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Teaching Portfolio</h2>
+          <p>I consider myself privileged to have had the opportunity to teach an array of diverse courses to students who truly inspired me.</p>
+        </div>
+        <!-- ======= Portfolio Section ======= -->
+        <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Title</th>
+            <th scope="col">Level Taught</th>
+            <th scope="col">Responsibility</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">Spring 2023</th>
+            <td>Master Thesises in Economics</td>
+            <td>Fourth Semester on the Master</td>
+            <td>Supervisor</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2023</th>
+            <td>Financial Engineering Project</td>
+            <td>Second Semester on the Master</td>
+            <td>Supervisor</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2022</th>
+            <td>Financial Derivatives</td>
+            <td>Second Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2022</th>
+            <td>Bachelor Thesis in Economics</td>
+            <td>Six Semester on the Bachelor</td>
+            <td>Supervisor</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2021</th>
+            <td>Portfolio Theory</td>
+            <td>First Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2021</th>
+            <td>International Finance</td>
+            <td>First Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2021</th>
+            <td>Statistical Analyses of Econometric Time Series</td>
+            <td>First Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2021</th>
+            <td>Mathematical Modelling</td>
+            <td>Third Semester on the Bachelor</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2020</th>
+            <td>Continuous-Time Finance</td>
+            <td>First Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2020</th>
+            <td>Basic Non-Life Insurance Mathematics</td>
+            <td>Third Semester on the Bachelor</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2020</th>
+            <td>Topics in Non-Life Insurance</td>
+            <td>Third Semester on the Master</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Spring 2020</th>
+            <td>Insurance and Law Topics</td>
+            <td>Second Semester on the Bachelor</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2019</th>
+            <td>Introduction to Economics</td>
+            <td>First Semester on the Bachelor</td>
+            <td>Teaching Assistant</td>
+            </tr>
+            <tr>
+            <th scope="row">Fall 2019</th>
+            <td>Introduction to Numerical Analysis</td>
+            <td>Third Semester on the Bachelor</td>
+            <td>Teaching Assistant</td>
+            </tr>
+        </tbody>
+        </table>
+<!--
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        -->
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!--
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="bi bi-briefcase"></i></div>
+            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-card-checklist"></i></div>
+            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-bar-chart"></i></div>
+            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-binoculars"></i></div>
+            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-brightness-high"></i></div>
+            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    -->
+    <!-- End Services Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!--
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>-->
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Thank you for visiting my website. If you have any questions or would like to learn more about my research, please do not hesitate to contact me.</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Hadsundvej 180C, 1, 10, 9000 Aalborg, Denmark</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p><a href="mailto:ppl@business.aau.dk?subject=The%20subject%20of%20the%20email">ppl@business.aau.dk</a></p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+45 51157881</p>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2171.5016437998192!2d9.955722877196544!3d57.025837393226645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464932d6be1c5175%3A0x1814f232ac4a0a0c!2sHadsundvej%20180C%2C%209000%20Aalborg!5e0!3m2!1sda!2sdk!4v1690489149899!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>-->
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
