@@ -1097,6 +1097,12 @@ section {
   color: #eaebf0;
 }
 
+#footer .dateModified {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+}
+
 @media (max-width: 1199px) {
   #footer {
     position: static;
