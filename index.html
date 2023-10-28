@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Peter Lind</title>
+  <title>Peter Pommergård Lind</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -47,7 +47,7 @@
 
       <div class="profile">
         <img src="assets/img/portræt2.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Peter Lind</a></h1>
+        <h1 class="text-light"><a href="index.html">Peter P. Lind</a></h1>
         <div class="social-links mt-3 text-center">
           <!--<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
           <!--<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>-->
@@ -61,7 +61,7 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Research Interets</span></a></li>
+          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Research</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Teaching Portfolio</span></a></li>
           <!--<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
@@ -74,7 +74,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Peter Lind</h1>
+      <h1>Peter Pommergård Lind</h1>
       <p>I research in <span class="typed" data-typed-items="Option Theory, Machine Learning, Numerical Methods, Finance"></span></p>
     </div>
   </section><!-- End Hero -->
@@ -88,7 +88,7 @@
         <div class="section-title">
           <h2>About</h2>
           <p>
-            I'm Peter Lind a Ph.D.-Fellow in Finance at Aalborg University.       
+            I'm Peter Pommergård Lind a Ph.D.-Fellow in Finance at Aalborg University.       
             I research the exciting cross-section of machine learning and option theory. 
           </p>
         </div>
@@ -137,32 +137,42 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Research Interest</h2>
+          <h2>Research</h2>
           <p>
             I research machine learning methods for Finance. More specifically, I develop fast and accurate methods for option valuation 
             and calibration. In my research, I combine classical option theory methods with modern methods such as neural networks, tree regression, and 
             differential machine learning to produce powerful tools for trading and risk management.        
             I hope these tools can improve solutions to complex, real-world problems, changing the world. 
-            <i>e.g.</i> I propose and develop a new Monte Carlo method to valuate American options using a neural network <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4014593">"Overcoming the Feature Selection Issue in the Pricing of American Options".</a>
           </p>
-          <!--
-          <ul>
-            <li>Expertise in Machine Learning and Numerical Methods</li>
-            <li>Strong background in probability theory, stochastic calculus, and statistics.</li>
-            <li>
-                Strong programming skills in Python. Knowledge of machine learning libraries and frameworks
-                through experience working with Tensorflow, Keras, and PyTorch. Experience working with
-                numerical and data science libraries such as scikit-learn, SciPy, NumPy, Pandas, and Jupyter.
-            </li>
-            <li>
-                Experience in Java, R, C++, and Julia.
-            </li>
-            <li>
-                In-depth knowledge of financial instruments and markets. Understanding financial risks and
-                how to manage and transfer them
-            </li>
-          </ul>
-        -->
+        </div>
+        <div class="section-title">
+        <h2>Papers</h2>
+          <h3>NN de-Americanization: A Fast and Efficient Calibration Method for American-Style Options</h3>
+          <p>
+            Neural network (NN) de-Americanization produces fast and accurate pseudo-European option prices from American option market prices, 
+            facilitating the calibration of derivative models. The industry approach binomial de-Americanization takes a flat volatility surface as input. 
+            In contrast, the NN de-Americanization method takes the detailed shape of the volatility surface as an input; 
+            this is critical for the accurate evaluation of the early exercise premium (EEP) when interest rates are not close to zero. 
+            <br>
+            <br>
+            Preprint avaiable online <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4616123">here</a>.
+          </p>
+          <br>
+          <h3>Overcoming the Feature Selection Issue in the Pricing of American Options</h3>
+          <p>
+            The feedforward neural network Monte Carlo method (FNNMC) exhibits more robustness and
+            accuracy than the state-of-the-art least squares Monte Carlo method (LSM) in pricing several
+            American-style options. Specifically, the FNNMC price estimates are accurate for basket options,
+            where the FNNMC price errors are more than four times smaller than the LSM with the best
+            choice of basis functions. By training the neural network the FNNMC avoids the issue of choosing
+            a proper set of basis functions. Hence we circumvent manually engineering the features for each
+            type of option. Furthermore, we explore in-depth the hyperparameter selection for the FNNMC.
+            In the exploration, we use a novel approach called price grid search, where the search is done at
+            the price level instead of at the usual regression level.
+            <br>
+            <br>
+            Preprint avaiable online <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4014593">here</a>.
+          </p>
         </div>
 <!--
         <div class="row no-gutters">
@@ -210,8 +220,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Skills</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Upcoming Presentations</h2>
+          <p></p>
         </div>
 
         <div class="row skills-content">
@@ -270,7 +280,7 @@
 
       </div>
     </section>
-    --><!-- End Skills Section -->
+--><!-- End Skills Section -->
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
       <div class="container">
@@ -284,7 +294,7 @@
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Summary</h3>
             <div class="resume-item pb-0">
-              <h4>Peter Lind</h4>
+              <h4>Peter Pommergård Lind</h4>
               <p><em> Ph.D. fellow in Finance (Quantitative Finance) at Aalborg University Business School. 
                 Studying option pricing and machine learning methods in Finance.</em></p>
               <ul>
