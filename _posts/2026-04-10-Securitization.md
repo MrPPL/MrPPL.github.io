@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Welcome to my new blog!"
+title: "Securitization"
 date: 2026-04-10
 ---
 
