@@ -1,0 +1,4 @@
+# Settings
+title: My Site
+markdown: kramdown
+permalink: /blog/:title/  # This makes your URLs look like /blog/my-post/
