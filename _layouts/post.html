@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta charset="UTF-8">
+    <link href="/assets/css/style.css" rel="stylesheet">
     <title>{{ page.title }}</title>
+    <style>
+        .blog-post-content { line-height: 1.8; font-size: 1.1rem; color: #444; }
+        .blog-post-content h2, .blog-post-content h3 { margin-top: 40px; color: #0563af; }
+        .blog-post-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
+    </style>
 </head>
 <body>
-    <article>
-        <h1>{{ page.title }}</h1>
-        <p>Published on: {{ page.date | date_to_string }}</p>
-        <hr>
-        {{ content }} </article>
-    <a href="/blog.html">Back to Blog</a>
+    <div class="container" style="max-width: 800px; margin-top: 100px; margin-bottom: 100px;">
+        <header style="margin-bottom: 50px;">
+            <h1 style="font-size: 3rem; font-weight: 700;">{{ page.title }}</h1>
+            <p style="color: #888;">Published on {{ page.date | date: "%B %d, %Y" }}</p>
+            <hr>
+        </header>
+
+        <article class="blog-post-content">
+            {{ content }}
+        </article>
+
+        <footer style="margin-top: 80px;">
+            <a href="/blog/" style="background: #0563af; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none;">← Back to Blog</a>
+        </footer>
+    </div>
 </body>
 </html>
