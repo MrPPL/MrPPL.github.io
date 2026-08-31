@@ -161,17 +161,6 @@
 
   <main id="main">
 
-    <!-- Top Navigation Bar -->
-    <div class="container pt-4 pb-2">
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="/blog/index.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
-          <i class="bi bi-arrow-left me-1"></i> Back to Blog
-        </a>
-        <a href="/index.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
-          <i class="bi bi-house me-1"></i> Portfolio Home
-        </a>
-      </div>
-    </div>
 
     <section class="blog-article-section py-4">
       <div class="container">
@@ -180,26 +169,10 @@
             <article class="blog-post-card shadow p-4 p-md-5 bg-white rounded-4 border">
               <!-- Article Header -->
               <header class="mb-5 pb-4 border-bottom">
-                <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
-                  {% if page.categories %}
-                  <span class="badge bg-primary px-3 py-2 rounded-pill">{{ page.categories | first }}</span>
-                  {% endif %}
-                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> {{ page.date | date: "%B %d, %Y" }}</span>
-                  {% if page.reading_time %}
-                  <span class="text-muted small"><i class="bi bi-clock me-1"></i> {{ page.reading_time }}</span>
-                  {% endif %}
-                </div>
                 <h1 class="display-5 fw-bold text-dark mb-3">{{ page.title }}</h1>
                 {% if page.excerpt %}
                 <p class="lead text-secondary fst-italic mb-4">{{ page.excerpt }}</p>
                 {% endif %}
-                <div class="d-flex align-items-center pt-2">
-                  <img src="/assets/img/portræt2.jpg" class="rounded-circle me-3 border" width="52" height="52" alt="Dr. Peter P. Lind">
-                  <div>
-                    <h6 class="mb-0 fw-bold">{{ page.author | default: "Dr. Peter P. Lind" }}</h6>
-                    <small class="text-muted">Quantitative Researcher at Verition Fund Management</small>
-                  </div>
-                </div>
               </header>
 
               <!-- Article Content -->
@@ -207,42 +180,10 @@
                 {{ content }}
               </div>
 
-              <!-- Article Footer -->
-              <footer class="mt-5 pt-4 border-top">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                  <div>
-                    <span class="fw-semibold me-2 text-muted">Tags:</span>
-                    {% for tag in page.tags %}
-                    <span class="tag-pill">{{ tag }}</span>
-                    {% endfor %}
-                  </div>
-                  <div>
-                    <a href="/blog/index.html" class="btn btn-primary px-4 rounded-pill">
-                      <i class="bi bi-arrow-left me-1"></i> All Articles
-                    </a>
-                  </div>
-                </div>
-              </footer>
+
             </article>
 
-            <!-- Author Bio Card -->
-            <div class="card mt-4 p-4 shadow-sm rounded-4 border-0 bg-light">
-              <div class="d-flex align-items-center flex-column flex-sm-row text-center text-sm-start">
-                <img src="/assets/img/portræt2.jpg" class="rounded-circle me-sm-4 mb-3 mb-sm-0 border" width="76" height="76" alt="Dr. Peter P. Lind">
-                <div>
-                  <h5 class="fw-bold mb-1">Dr. Peter P. Lind</h5>
-                  <p class="text-muted small mb-2">Quantitative Researcher at Verition Fund Management in London. Ph.D. in Finance specializing in option theory, machine learning, and numerical methods.</p>
-                  <div class="d-flex gap-2 justify-content-center justify-content-sm-start">
-                    <a href="https://www.linkedin.com/in/peter-pommergaard-lind/" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3">
-                      <i class="bi bi-linkedin me-1"></i> LinkedIn
-                    </a>
-                    <a href="/index.html#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">
-                      <i class="bi bi-envelope me-1"></i> Contact
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
           </div>
         </div>

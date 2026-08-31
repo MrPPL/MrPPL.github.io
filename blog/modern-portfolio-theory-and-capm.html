@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>From Markowitz's Efficient Frontier to CAPM | Dr. Peter P. Lind</title>
+  <meta content="Exploring Modern Portfolio Theory, the mathematics of Markowitz optimization, the Two-Fund Separation Theorem, and how the Capital Allocation Line leads to CAPM." name="description">
+  <meta content="Finance, CFA, Option Theory, Machine Learning, Portfolio Theory" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- KaTeX for mathematical formula rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$', right:'$$', display:true}, {left:'$', right:'$', display:false}]});"></script>
+
+  <!-- Syntax highlighting for code blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      hljs.highlightAll();
+    });
+  </script>
+
+  <style>
+    .blog-post-body {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: #2e3034;
+      font-family: "Open Sans", sans-serif;
+    }
+    .blog-post-body h2 {
+      font-weight: 700;
+      color: #173b6c;
+      margin-top: 2.8rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #e9ecef;
+      padding-bottom: 0.5rem;
+    }
+    .blog-post-body h3 {
+      font-weight: 600;
+      color: #0563af;
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.45rem;
+    }
+    .blog-post-body h4 {
+      font-weight: 600;
+      color: #2c2f3f;
+      margin-top: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .blog-post-body p {
+      margin-bottom: 1.3rem;
+    }
+    .blog-post-body ul, .blog-post-body ol {
+      margin-bottom: 1.4rem;
+      padding-left: 1.8rem;
+    }
+    .blog-post-body li {
+      margin-bottom: 0.5rem;
+    }
+    .blog-post-body pre {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.2rem;
+      overflow-x: auto;
+      margin: 1.6rem 0;
+    }
+    .blog-post-body code {
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+    .blog-post-body blockquote {
+      border-left: 4px solid #149ddd;
+      background-color: #f8f9fd;
+      padding: 1rem 1.5rem;
+      margin: 1.6rem 0;
+      font-style: italic;
+      color: #495057;
+      border-radius: 0 8px 8px 0;
+    }
+    .blog-post-body .katex-display {
+      margin: 1.8rem 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.5rem 0;
+    }
+    .blog-post-card {
+      transition: box-shadow 0.3s ease;
+    }
+    .tag-pill {
+      font-size: 0.82rem;
+      padding: 0.35rem 0.75rem;
+      background-color: #eef5fb;
+      color: #173b6c;
+      border: 1px solid #d4e7f7;
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="/assets/img/portræt2.jpg" alt="Dr. Peter P. Lind" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="/index.html">Dr. Peter P. Lind</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/peter-pommergaard-lind/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="/index.html#hero" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="/index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="/index.html#facts" class="nav-link"><i class="bx bi-journal-richtext"></i> <span>Research</span></a></li>
+          <li><a href="/index.html#skills" class="nav-link"><i class="bx bx-plus"></i> <span>Outreach</span></a></li>
+          <li><a href="/index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="/index.html#portfolio" class="nav-link"><i class="bx bx-book-content"></i> <span>Teaching</span></a></li>
+          <li><a href="/blog/index.html" class="nav-link active"><i class="bx bx-news"></i> <span>Blog</span></a></li>
+          <li><a href="/index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- Top Navigation Bar -->
+    <div class="container pt-4 pb-2">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/blog/index.html" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+          <i class="bi bi-arrow-left me-1"></i> Back to Blog
+        </a>
+        <a href="/index.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+          <i class="bi bi-house me-1"></i> Portfolio Home
+        </a>
+      </div>
+    </div>
+
+    <section class="blog-article-section py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-9">
+            <article class="blog-post-card shadow p-4 p-md-5 bg-white rounded-4 border">
+              <!-- Article Header -->
+              <header class="mb-5 pb-4 border-bottom">
+                <div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+                  
+                  <span class="badge bg-primary px-3 py-2 rounded-pill">CFA</span>
+                  
+                  <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i> July 26, 2026</span>
+                  
+                  <span class="text-muted small"><i class="bi bi-clock me-1"></i> 7 min read</span>
+                  
+                </div>
+                <h1 class="display-5 fw-bold text-dark mb-3">From Markowitz's Efficient Frontier to CAPM</h1>
+                
+                <p class="lead text-secondary fst-italic mb-4">Exploring Modern Portfolio Theory, the mathematics of Markowitz optimization, the Two-Fund Separation Theorem, and how the Capital Allocation Line leads to CAPM.</p>
+                
+                <div class="d-flex align-items-center pt-2">
+                  <img src="/assets/img/portræt2.jpg" class="rounded-circle me-3 border" width="52" height="52" alt="Dr. Peter P. Lind">
+                  <div>
+                    <h6 class="mb-0 fw-bold">Dr. Peter P. Lind</h6>
+                    <small class="text-muted">Quantitative Researcher at Verition Fund Management</small>
+                  </div>
+                </div>
+              </header>
+
+              <!-- Article Content -->
+              <div class="blog-post-body">
+                <p>We derive and explain the theoretical foundations of CAPM, inspired by insights I recently gained while studying for the CFA Level I exam. I hope you find this breakdown as enlightening as I did.</p>
+<ol>
+<li><strong>Find the optimal portfolio in the mean-variance Markowitz framework with (N) assets</strong></li>
+<li><strong>1a.</strong> Define the optimisation problem.</li>
+<li>
+<p><strong>1b.</strong> Solve the optimisation problem.</p>
+</li>
+<li>
+<p><strong>Introduce a risk-free asset</strong></p>
+</li>
+<li><strong>2a.</strong> Realise that there is an optimal portfolio consisting of a linear combination of the risk-free asset and the "optimal" portfolio of risky assets.</li>
+<li>
+<p><strong>2b.</strong> Show the Capital Allocation Line (CAL).</p>
+</li>
+<li>
+<p><strong>Connect the CAL to the CAPM</strong></p>
+</li>
+<li><strong>3a.</strong> Assume that the optimal portfolio is the market portfolio.</li>
+<li>
+<p><strong>3b.</strong> Derive the expression for the CAPM.</p>
+</li>
+<li>
+<p><strong>Conclusion</strong></p>
+</li>
+<li>
+<p><strong>Appendix: Mathematical Derivation of CAPM via Perturbation</strong></p>
+</li>
+</ol>
+<hr />
+<h2>1. Find the optimal portfolio in the mean-variance Markowitz framework with (N) assets</h2>
+<p>Let us formalize a market of $N$ risky assets. Let $R = (R_1, R_2, \dots, R_N)^T$ be the random vector of asset returns with expected return vector $\mu = E[R]$ and an $N \times N$ positive-definite covariance matrix $\Sigma$.</p>
+<p>A portfolio is defined by a vector of weights $w = (w_1, w_2, \dots, w_N)^T$, where $w_i$ represents the proportion of wealth invested in asset $i$. The portfolio's expected return and variance are given by:</p>
+<p>$$E[R_p] = w^T \mu = \sum_{i=1}^N w_i \mu_i$$</p>
+<p>$$\sigma_p^2 = w^T \Sigma w = \sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{ij}$$</p>
+<h3>The Optimization Problem</h3>
+<p>To construct the <strong>Minimum-Variance Frontier</strong>, an investor seeks the portfolio weights that minimize variance subject to achieving a target expected return $r^*$ and fully investing budget constraints:</p>
+<p>$$\min_{w} \quad w^T \Sigma w$$</p>
+<p>$$\text{subject to} \quad w^T \mu = r^* \quad \text{and} \quad \sum_{i=1}^N w_i = 1$$</p>
+<p>When plotted in $(\sigma_p, E[R_p])$ space (cf. Figure 1 below), the solution to this quadratic optimization problem traces out the famous hyperbola known as the minimum-variance bullet. The <strong>Efficient Frontier</strong> is the upper limb of this curve above the Global Minimum Variance (GMV) portfolio, representing portfolios that offer the maximum possible expected return for any given level of volatility.</p>
+<h3>Solved optimization problem</h3>
+<p><strong>Figure 1: Efficient Frontier, Individual assets, and the Capital Allocation Line (CAL)</strong></p>
+<!-- SVG Solved Optimization Chart -->
+<div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-5 bg-white p-3">
+  <svg viewBox="0 0 650 360" class="w-100 h-auto" xmlns="http://www.w3.org/2000/svg" style="max-height: 400px;">
+    <defs>
+      <linearGradient id="efGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#0d6efd" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#20c997" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <!-- Background grid -->
+    <g stroke="#f0f2f5" stroke-width="1">
+      <line x1="80" y1="50" x2="600" y2="50"/>
+      <line x1="80" y1="110" x2="600" y2="110"/>
+      <line x1="80" y1="170" x2="600" y2="170"/>
+      <line x1="80" y1="230" x2="600" y2="230"/>
+      <line x1="80" y1="290" x2="600" y2="290"/>
+    </g>
+    <!-- Axes -->
+    <line x1="80" y1="310" x2="600" y2="310" stroke="#495057" stroke-width="2"/>
+    <line x1="80" y1="310" x2="80" y2="30" stroke="#495057" stroke-width="2"/>
+    <!-- Axis Labels -->
+    <text x="340" y="345" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#495057" font-weight="bold">Risk / Standard Deviation (σ_p)</text>
+    <text x="30" y="170" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#495057" font-weight="bold" transform="rotate(-90 30 170)">Expected Return (E[R_p])</text>
+    <!-- R_rf mark -->
+    <circle cx="80" cy="260" r="6" fill="#dc3545"/>
+    <text x="65" y="264" text-anchor="end" font-family="sans-serif" font-size="13" fill="#dc3545" font-weight="bold">R_rf</text>
+    <!-- Markowitz Bullet (Lower inefficient limb - dashed) -->
+    <path d="M 180 250 Q 180 290 480 340" fill="none" stroke="#adb5bd" stroke-width="2.5" stroke-dasharray="5,5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Efficient Frontier (Upper limb) - Pronounced classical arch, C1 continuous, tangent at P*(380, 110) -->
+    <path d="M 180 250 Q 180 210 380 110 Q 440 80 530 65" fill="none" stroke="url(#efGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- CAL Line from R_rf (80, 260) tangent to curve at P*(380, 110) -->
+    <line x1="80" y1="260" x2="560" y2="20" stroke="#0d6efd" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <!-- GMV Dot -->
+    <circle cx="180" cy="250" r="6" fill="#6c757d"/>
+    <text x="110" y="254" font-family="sans-serif" font-size="12" fill="#495057" font-weight="bold">GMV Portfolio</text>
+    <!-- Tangency Portfolio P* Dot -->
+    <circle cx="380" cy="110" r="7.5" fill="#0d6efd" stroke="#fff" stroke-width="2"/>
+    <text x="395" y="115" font-family="sans-serif" font-size="13" fill="#0d6efd" font-weight="bold">P* (Tangency / Market Portfolio M)</text>
+    <!-- CAL Label -->
+    <text x="410" y="45" font-family="sans-serif" font-size="13" fill="#0d6efd" font-weight="bold">CAL / CML (Slope = Sharpe Ratio)</text>
+    <!-- Individual Assets scattered inside -->
+    <circle cx="270" cy="230" r="4.5" fill="#adb5bd"/>
+    <circle cx="370" cy="200" r="4.5" fill="#adb5bd"/>
+    <circle cx="430" cy="170" r="4.5" fill="#adb5bd"/>
+    <circle cx="320" cy="260" r="4.5" fill="#adb5bd"/>
+    <text x="440" y="174" font-family="sans-serif" font-size="11" fill="#6c757d">Individual Assets</text>
+  </svg>
+</div>
+
+<h2>2. Introduce a risk-free asset (The Two-Fund Separation Theorem)</h2>
+<p>When we introduce a <strong>risk-free asset</strong> with deterministic return $R_{rf}$ (where $\sigma_{rf} = 0$ and covariance with all risky assets is zero), the geometry of portfolio selection changes dramatically.</p>
+<p>Suppose an investor allocates weight $w$ to an risky portfolio $p^*$ on the efficient frontier, and weight $(1 - w)$ to the risk-free asset. The return of this combined portfolio is:</p>
+<p>$$R_p = (1 - w) R_{rf} + w R_{p^<em>} = R_{rf} + w(R_{p^</em>} - R_{rf})$$</p>
+<p>Taking expectations on both sides gives:</p>
+<p>$$E[R_p] = R_{rf} + w \big(E[R_{p^*}] - R_{rf}\big)$$</p>
+<p>Because the risk-free asset has zero variance and zero covariance, the variance of the combined portfolio depends solely on the risky portfolio $p^*$:</p>
+<p>$$\sigma_p = \sqrt{w^2 \sigma_{p^<em>}^2} = w \sigma_{p^</em>} \implies w = \frac{\sigma_p}{\sigma_{p^*}}$$</p>
+<p>Substituting the expression for $w$ back into the expected return equation yields the linear equation known as the <strong>Capital Allocation Line (CAL)</strong>:</p>
+<p>$$E[R_p] = R_{rf} + \sigma_p \cdot \frac{E[R_{p^<em>}] - R_{rf}}{\sigma_{p^</em>}}$$</p>
+<pre><code>       E[R_p] ▲
+              │                                      . - '' CAL (Capital Allocation Line)
+              │                                 . - ''    /
+              │                            . - ''        /  Efficient Frontier
+              │                       . - ''  (Tangency p*)
+              │                  . - ''      /
+              │             . - ''          /
+              │        . - ''
+       R_rf   ├─── . - ''
+              │
+              └──────────────────────────────────────────────► σ_p (Volatility)
+</code></pre>
+<h3>Key Economic Insight: Two-Fund Separation</h3>
+<p>The slope of the CAL is precisely the <strong>Sharpe Ratio</strong> of the risky portfolio $p^*$:</p>
+<p>$$\text{Sharpe Ratio} = \frac{E[R_{p^<em>}] - R_{rf}}{\sigma_{p^</em>}}$$</p>
+<p>To maximize the slope of the CAL, we find the line from $R_{rf}$ that is <strong>tangent</strong> to the risky efficient frontier. This tangency portfolio $p^*$ is unique. </p>
+<p>This leads to Tobin's <strong>Two-Fund Separation Theorem</strong>: every rational mean-variance investor, regardless of their personal risk aversion, will choose to hold a combination of just two funds:
+1. The risk-free asset ($R_{rf}$)
+2. The optimal tangency risky portfolio ($p^*$)</p>
+<p>Individual risk preference only dictates the allocation weight $w$ along the CAL (lending vs. borrowing at $R_{rf}$), not the composition of the risky portfolio itself.</p>
+<hr />
+<h2>3. From Capital Market Line (CML) to CAPM &amp; The Security Market Line</h2>
+<p>In a market equilibrium where all investors share homogeneous expectations and access the same information, every investor holds the same tangency portfolio $p^<em>$. By market clearing, $p^</em>$ must be the <strong>Market Portfolio ($M$)</strong> containing all risky assets weighted by their market value.</p>
+<p>When $p^<em> = M$, the CAL becomes the </em><em>Capital Market Line (CML)</em>*:</p>
+<p>$$E[R_p] = R_{rf} + \sigma_p \cdot \frac{E[R_M] - R_{rf}}{\sigma_M}$$</p>
+<h3>Why CML Cannot Price Individual Assets</h3>
+<p>The CML prices <em>efficient portfolios</em> based on total volatility ($\sigma_p$). However, an individual asset $i$ held within the market portfolio is not priced based on its total standard deviation $\sigma_i$. Why? Because a large portion of an individual asset's risk is <strong>idiosyncratic (diversifiable)</strong> and vanishes when combined with other assets.</p>
+<h3>Deriving the Security Market Line (SML)</h3>
+<p>To determine the equilibrium return of an individual asset $i$, we measure its marginal contribution to the risk of the market portfolio. This is governed by its covariance with the market return, $\text{cov}(R_i, R_M)$. <em>(For a formal mathematical derivation using perturbation, see the Appendix.)</em></p>
+<p>In equilibrium, the required excess return of any asset is proportional to its contribution to market risk, leading to the <strong>Capital Asset Pricing Model (CAPM)</strong> and the <strong>Security Market Line (SML)</strong>:</p>
+<p>$$E[R_i] - R_{rf} = \beta_i \big(E[R_M] - R_{rf}\big)$$</p>
+<p>where the asset's beta ($\beta_i$) measures its <strong>systematic risk</strong>:</p>
+<p>$$\beta_i = \frac{\text{cov}(R_i, R_M)}{\text{var}(R_M)} = \rho_{i,M} \frac{\sigma_i}{\sigma_M}$$</p>
+<h3>Systematic vs. Idiosyncratic Risk</h3>
+<p>Notice that if an asset is perfectly correlated with the market ($\rho_{i,M} = 1$), its beta simplifies to $\beta_i = \frac{\sigma_i}{\sigma_M}$. However, when $\rho_{i,M} &lt; 1$, the asset earns less risk premium than its total volatility $\sigma_i$ might suggest.</p>
+<p>In a competitive market, investors are <strong>only compensated for bearing systematic risk</strong> ($\beta_i$), because idiosyncratic risk can be costlessly eliminated through diversification.</p>
+<h2>4. The Paradigm Shift: From Individual Assets to Portfolios</h2>
+<p>Before Markowitz's seminal 1952 paper, investment analysis often evaluated individual securities in isolation—seeking assets with the highest expected returns and lowest individual variances. Markowitz formalized a critical insight: <strong>an asset's risk should not be assessed in isolation, but by how it contributes to the overall risk of a diversified portfolio.</strong></p>
+<p>By exploiting imperfect correlations between asset returns, investors can construct portfolios that achieve higher expected returns for a given level of variance, or lower variance for a target expected return.</p>
+<hr />
+<h2>Appendix: Mathematical Derivation of CAPM via Perturbation</h2>
+<p>To bridge the step between the Capital Market Line (CML) and the Capital Asset Pricing Model (CAPM), we use a perturbation argument: we consider adding a small allocation of an individual asset $i$ to the already optimal Market Portfolio $M$ and calculate the resulting marginal rate of substitution.</p>
+<h3>Step 1: Form a Perturbed Portfolio</h3>
+<p>Consider a portfolio consisting of a fraction $w$ invested in risky asset $i$ and $(1 - w)$ invested in the market portfolio $M$:</p>
+<p>$$R(w) = w R_i + (1 - w) R_M$$</p>
+<p>The expected return and standard deviation of this portfolio as functions of $w$ are:</p>
+<p>$$E[R(w)] = w E[R_i] + (1 - w) E[R_M]$$</p>
+<p>$$\sigma(w) = \sqrt{w^2 \sigma_i^2 + (1 - w)^2 \sigma_M^2 + 2w(1 - w)\text{Cov}(R_i, R_M)}$$</p>
+<h3>Step 2: Compute Marginal Changes at $w = 0$</h3>
+<p>Take the derivative of both equations with respect to $w$ evaluated at $w = 0$ (the point where the portfolio is purely the market portfolio $M$):</p>
+<p><strong>1. Marginal Expected Return:</strong></p>
+<p>$$\left. \frac{d E[R(w)]}{dw} \right\vert_{w=0} = E[R_i] - E[R_M]$$</p>
+<p><strong>2. Marginal Risk (Standard Deviation):</strong>
+Using the chain rule on $\sigma(w)$:</p>
+<p>$$\frac{d \sigma(w)}{dw} = \frac{2w\sigma_i^2 - 2(1-w)\sigma_M^2 + 2(1-2w)\text{Cov}(R_i, R_M)}{2\sigma(w)}$$</p>
+<p>Evaluating at $w = 0$ (where $\sigma(0) = \sigma_M$):</p>
+<p>$$\left. \frac{d \sigma(w)}{dw} \right\vert_{w=0} = \frac{-\sigma_M^2 + \text{Cov}(R_i, R_M)}{\sigma_M} = \frac{\text{Cov}(R_i, R_M) - \sigma_M^2}{\sigma_M}$$</p>
+<h3>Step 3: Compute the Slope in $(\sigma, E[R])$ Space</h3>
+<p>The slope of the curve traced out by this portfolio at $w = 0$ is:</p>
+<p>$$\left. \frac{d E[R(w)]}{d \sigma(w)} \right\vert_{w=0} = \frac{\left. \frac{d E[R(w)]}{dw} \right\vert_{w=0}}{\left. \frac{d \sigma(w)}{dw} \right\vert_{w=0}} = \frac{E[R_i] - E[R_M]}{\frac{\text{Cov}(R_i, R_M) - \sigma_M^2}{\sigma_M}}$$</p>
+<h3>Step 4: Tangency with the CML</h3>
+<p>Because $M$ is the optimal tangency portfolio in equilibrium, the curve formed by blending asset $i$ into $M$ cannot cross above the Capital Market Line. Thus, it must be tangent to the CML at $w = 0$.</p>
+<p>The slope of the CML is the Sharpe ratio of the market (note we use $R_{rf}$ for the risk-free rate):</p>
+<p>$$\text{Slope of CML} = \frac{E[R_M] - R_{rf}}{\sigma_M}$$</p>
+<p>Equating the two slopes at $w = 0$:</p>
+<p>$$\frac{E[R_i] - E[R_M]}{\frac{\text{Cov}(R_i, R_M) - \sigma_M^2}{\sigma_M}} = \frac{E[R_M] - R_{rf}}{\sigma_M}$$</p>
+<p>Multiply both sides by $\frac{\text{Cov}(R_i, R_M) - \sigma_M^2}{\sigma_M}$:</p>
+<p>$$E[R_i] - E[R_M] = \left(\frac{\text{Cov}(R_i, R_M) - \sigma_M^2}{\sigma_M^2}\right) \Big(E[R_M] - R_{rf}\Big)$$</p>
+<p>$$E[R_i] - E[R_M] = \left( \frac{\text{Cov}(R_i, R_M)}{\sigma_M^2} - 1 \right) \Big(E[R_M] - R_{rf}\Big)$$</p>
+<h3>Step 5: Rearrange to Yield CAPM</h3>
+<p>Expand the right-hand side:</p>
+<p>$$E[R_i] - E[R_M] = \frac{\text{Cov}(R_i, R_M)}{\sigma_M^2} \Big(E[R_M] - R_{rf}\Big) - \Big(E[R_M] - R_{rf}\Big)$$</p>
+<p>Add $E[R_M]$ to both sides:</p>
+<p>$$E[R_i] = R_{rf} + \underbrace{\left(\frac{\text{Cov}(R_i, R_M)}{\sigma_M^2}\right)}<em>{\beta_i} \Big(E[R_M] - R</em>{rf}\Big)$$</p>
+<h3>Intuition: Why $\frac{\sigma_p}{\sigma_M}$ becomes $\beta_i$</h3>
+<p>On the CML, a portfolio $p$ is fully diversified ($p$ is simply a mix of $R_{rf}$ and $M$). Its correlation with the market is $\rho_{p,M} = 1$, which makes its beta:</p>
+<p>$$\beta_p = \frac{\text{Cov}(R_p, R_M)}{\sigma_M^2} = \frac{\rho_{p,M} \sigma_p \sigma_M}{\sigma_M^2} = \frac{(1)\sigma_p \sigma_M}{\sigma_M^2} = \frac{\sigma_p}{\sigma_M}$$</p>
+<p>For an individual asset $i$, $\rho_{i,M} &lt; 1$ because of idiosyncratic risk. The market only prices the marginal risk added to $M$, which scales by correlation $\rho_{i,M}$:</p>
+<p>$$\beta_i = \rho_{i,M} \frac{\sigma_i}{\sigma_M} = \frac{\text{Cov}(R_i, R_M)}{\sigma_M^2}$$</p>
+<hr />
+<h2>Summary</h2>
+<ul>
+<li><strong>Modern Portfolio Theory (Markowitz)</strong> shows that diversification reduces variance without necessarily sacrificing expected return by combining imperfectly correlated assets.</li>
+<li><strong>The Two-Fund Separation Theorem</strong> proves that introducing a risk-free rate allows all mean-variance investors to hold combinations of just two funds: the risk-free asset and the tangency portfolio $p^*$.</li>
+<li><strong>The Capital Allocation Line (CAL)</strong> defines the optimal risk-return tradeoff across combinations of $R_{rf}$ and $p^*$.</li>
+<li><strong>The Capital Asset Pricing Model (CAPM)</strong> demonstrates that in market equilibrium, an individual asset's required excess return depends on its <strong>systematic risk ($\beta$)</strong> rather than its total volatility, because diversifiable risk is not rewarded in the marketplace.</li>
+</ul>
+<hr />
+<h2>References &amp; Recommended Reading</h2>
+<ol>
+<li><strong>CFA Institute.</strong> <em>CFA Program Curriculum (Level I)</em>. Specifically Readings on Portfolio Management: <em>Portfolio Risk and Return: Part I &amp; II</em>, <em>Mean-Variance Analysis</em>, and <em>The Capital Asset Pricing Model (CAPM)</em>.</li>
+<li><strong>Elton, E. J., Gruber, M. J., Brown, S. J., &amp; Goetzmann, W. N.</strong> <em>Modern Portfolio Theory and Investment Analysis</em> (9th/10th Ed.). John Wiley &amp; Sons.</li>
+<li><strong>Markowitz, H.</strong> (1952). <em>Portfolio Selection</em>. The Journal of Finance, 7(1), 77–91.</li>
+<li><strong>Sharpe, W. F.</strong> (1964). <em>Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk</em>. The Journal of Finance, 19(3), 425–442.</li>
+<li><strong>Google Gemini (AI Assistant).</strong> Assistance with LaTeX mathematical formatting, interactive SVG data visualizations, and web styling.</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>Compliance Disclaimer:</strong> The views, thoughts, and opinions expressed in this article and across this website are strictly my own and do not represent the views, policies, or official positions of my employer, <strong>Verition Fund Management</strong> (or any of its affiliates, funds, or clients). All content is provided solely for educational, academic, and personal study purposes—including notes and syntheses from the CFA Level I curriculum and academic textbooks—and does not constitute investment advice, financial research, or an offer or solicitation to trade any security or financial product.</p>
+</blockquote>
+              </div>
+
+              <!-- Article Footer -->
+              <footer class="mt-5 pt-4 border-top">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                  <div>
+                    <span class="fw-semibold me-2 text-muted">Tags:</span>
+                    
+                    <span class="tag-pill"><span class="tag-pill">CFA Level I</span>
+<span class="tag-pill">Markowitz</span>
+<span class="tag-pill">CAPM</span>
+<span class="tag-pill">Efficient Frontier</span>
+<span class="tag-pill">Python</span>
+</span>
+                    
+                  </div>
+                  <div>
+                    <a href="/blog/index.html" class="btn btn-primary px-4 rounded-pill">
+                      <i class="bi bi-arrow-left me-1"></i> All Articles
+                    </a>
+                  </div>
+                </div>
+              </footer>
+            </article>
+
+            <!-- Author Bio Card -->
+            <div class="card mt-4 p-4 shadow-sm rounded-4 border-0 bg-light">
+              <div class="d-flex align-items-center flex-column flex-sm-row text-center text-sm-start">
+                <img src="/assets/img/portræt2.jpg" class="rounded-circle me-sm-4 mb-3 mb-sm-0 border" width="76" height="76" alt="Dr. Peter P. Lind">
+                <div>
+                  <h5 class="fw-bold mb-1">Dr. Peter P. Lind</h5>
+                  <p class="text-muted small mb-2">Quantitative Researcher at Verition Fund Management in London. Ph.D. in Finance specializing in option theory, machine learning, and numerical methods.</p>
+                  <div class="d-flex gap-2 justify-content-center justify-content-sm-start">
+                    <a href="https://www.linkedin.com/in/peter-pommergaard-lind/" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                      <i class="bi bi-linkedin me-1"></i> LinkedIn
+                    </a>
+                    <a href="/index.html#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">
+                      <i class="bi bi-envelope me-1"></i> Contact
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="mt-5">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Dr. Peter P. Lind</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed with BootstrapMade iPortfolio
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>
