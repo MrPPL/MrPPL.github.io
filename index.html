@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1027,8 +1027,8 @@
           if (res.ok && data.success) {
             outVal.className = "h3 fw-bold text-primary mb-0";
             outVal.innerText = `$${data.price.toFixed(4)}`;
-            document.getElementById("out-euro-price").innerText = `$${data.euro_price.toFixed(4)}`;
-            document.getElementById("out-eep").innerText = `+$${data.early_exercise_premium.toFixed(4)}`;
+            document.getElementById("out-euro-price").innerText = data.euro_price !== undefined ? `$${data.euro_price.toFixed(4)}` : "N/A";
+            document.getElementById("out-eep").innerText = data.early_exercise_premium !== undefined ? `+$${data.early_exercise_premium.toFixed(4)}` : "N/A";
             document.getElementById("out-stop-time").innerText = data.expected_exercise_time ? `${data.expected_exercise_time.toFixed(2)} yrs` : `${payload.time_to_mat} yrs`;
           } else {
             outVal.className = "text-danger small";
@@ -1036,7 +1036,7 @@
           }
         } catch (e) {
           outVal.className = "text-danger small";
-          outVal.innerText = "Failed to connect to backend engine.";
+          outVal.innerText = "Error: " + e.message; console.error(e);
         } finally {
           btn.disabled = false;
           btn.innerText = "Calculate Option Price";
