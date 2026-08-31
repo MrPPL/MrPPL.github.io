@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -733,9 +733,9 @@
           <div class="col-lg-7 col-md-10">
             <div class="card shadow-sm border-0 rounded-3 p-4 bg-white">
               
-              <!-- ðŸ”’ STATE 1: RESTRICTED ACCESS SCREEN -->
+              <!-- STATE 1: RESTRICTED ACCESS SCREEN -->
               <div id="pricer-lock-screen" class="text-center py-4">
-                <div class="mb-3" style="font-size: 3rem;">ðŸ”’</div>
+                <div class="mb-3"><i class="bi bi-shield-lock text-primary" style="font-size: 3.5rem;"></i></div>
                 <h4 class="fw-bold text-dark mb-2">Compliance Restricted Access</h4>
                 <p class="text-muted small mb-4">
                   This pricing model is protected under compliance review.<br>
@@ -745,65 +745,190 @@
                   <input type="password" id="pricer-pass-input" class="form-control" placeholder="Enter Access Password">
                   <button class="btn btn-primary px-3" type="button" id="unlock-button" onclick="unlockPricer()">Unlock</button>
                 </div>
-                <div id="lock-error" class="text-danger small mt-2" style="display: none;"></div>
-              </div>
-              <!-- âš¡ STATE 2: UNLOCKED PRICER FORM -->
+                <div id="lock-error" class="text-danger small mt-2" style="display              <!-- STATE 2: UNLOCKED MULTI-MODEL PRICER FORM -->
               <div id="pricer-form-screen" style="display: none;">
                 <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
                   <span class="badge bg-success"><i class="bi bi-shield-check me-1"></i> Authenticated</span>
                   <button class="btn btn-sm btn-outline-secondary" onclick="relockPricer()"><i class="bi bi-lock me-1"></i> Lock</button>
                 </div>
-                <div class="row g-3">
+
+                <!-- Model & Exercise Configuration -->
+                <div class="row g-3 mb-3">
                   <div class="col-sm-6">
+                    <label class="form-label small fw-bold text-secondary">Pricing Model</label>
+                    <select id="model-val" class="form-select" onchange="toggleModelParams()">
+                      <option value="black_scholes" selected>Black-Scholes (1973)</option>
+                      <option value="heston">Heston Stochastic Vol (PDE)</option>
+                      <option value="sabr">SABR Stochastic Vol</option>
+                      <option value="local_vol">Dupire Local Volatility (LV)</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3">
+                    <label class="form-label small fw-bold text-secondary">Exercise</label>
+                    <select id="exercise-val" class="form-select">
+                      <option value="european">European</option>
+                      <option value="american">American</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3">
+                    <label class="form-label small fw-bold text-secondary">Option Type</label>
+                    <select id="type-val" class="form-select">
+                      <option value="put" selected>Put</option>
+                      <option value="call">Call</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Core Contract Parameters -->
+                <div class="row g-3 mb-2">
+                  <div class="col-sm-4">
                     <label class="form-label small fw-bold text-secondary">Spot Price (S)</label>
                     <input type="number" id="spot-val" class="form-control" value="100" step="any">
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <label class="form-label small fw-bold text-secondary">Strike Price (K)</label>
                     <input type="number" id="strike-val" class="form-control" value="100" step="any">
                   </div>
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-bold text-secondary">Time to Expiry (Years)</label>
+                  <div class="col-sm-4">
+                    <label class="form-label small fw-bold text-secondary">Expiry (Years)</label>
                     <input type="number" id="ttm-val" class="form-control" value="1.0" step="0.05">
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-bold text-secondary">Implied Volatility (&sigma;)</label>
-                    <input type="number" id="vol-val" class="form-control" value="0.20" step="0.01">
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label small fw-bold text-secondary">Risk-Free Rate (r)</label>
                     <input type="number" id="rate-val" class="form-control" value="0.05" step="0.005">
                   </div>
                   <div class="col-sm-6">
-                    <label class="form-label small fw-bold text-secondary">Option Type</label>
-                    <select id="type-val" class="form-select">
-                      <option value="call">Call Option</option>
-                      <option value="put" selected>Put Option</option>
-                    </select>
+                    <label class="form-label small fw-bold text-secondary">Dividend Yield (q)</label>
+                    <input type="number" id="div-val" class="form-control" value="0.0" step="0.005">
                   </div>
                 </div>
-                <button id="calc-btn" class="btn btn-primary w-100 mt-4 py-2 fw-semibold" onclick="computeLivePrice()">
+
+                <!-- MODEL SPECIFIC PARAMETER BLOCKS -->
+                <!-- 1. Black-Scholes Block -->
+                <div id="params-bs" class="p-3 mb-3 bg-light rounded border">
+                  <div class="row g-3">
+                    <div class="col-sm-12">
+                      <label class="form-label small fw-bold text-dark">Implied Volatility (&sigma;)</label>
+                      <input type="number" id="bs-vol" class="form-control" value="0.20" step="0.01">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Heston Block -->
+                <div id="params-heston" class="p-3 mb-3 bg-light rounded border" style="display: none;">
+                  <h6 class="fw-bold text-dark mb-2 small"><i class="bi bi-sliders me-1"></i> Heston SV Parameters</h6>
+                  <div class="row g-2">
+                    <div class="col-sm-4">
+                      <label class="form-label small text-muted">Init Var (v<sub>0</sub>)</label>
+                      <input type="number" id="h-v0" class="form-control form-control-sm" value="0.04" step="0.005">
+                    </div>
+                    <div class="col-sm-4">
+                      <label class="form-label small text-muted">Mean Rev (&kappa;)</label>
+                      <input type="number" id="h-kappa" class="form-control form-control-sm" value="2.0" step="0.1">
+                    </div>
+                    <div class="col-sm-4">
+                      <label class="form-label small text-muted">Long-term Var (&theta;)</label>
+                      <input type="number" id="h-theta" class="form-control form-control-sm" value="0.04" step="0.005">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                      <label class="form-label small text-muted">Vol of Var (&sigma;<sub>v</sub>)</label>
+                      <input type="number" id="h-sigmav" class="form-control form-control-sm" value="0.30" step="0.02">
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                      <label class="form-label small text-muted">Correlation (&rho;)</label>
+                      <input type="number" id="h-rho" class="form-control form-control-sm" value="-0.50" step="0.05">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. SABR Block -->
+                <div id="params-sabr" class="p-3 mb-3 bg-light rounded border" style="display: none;">
+                  <h6 class="fw-bold text-dark mb-2 small"><i class="bi bi-sliders me-1"></i> SABR Parameters</h6>
+                  <div class="row g-2">
+                    <div class="col-sm-3">
+                      <label class="form-label small text-muted">Alpha (&alpha;)</label>
+                      <input type="number" id="sabr-alpha" class="form-control form-control-sm" value="0.20" step="0.01">
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="form-label small text-muted">Beta (&beta;)</label>
+                      <input type="number" id="sabr-beta" class="form-control form-control-sm" value="1.0" step="0.1">
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="form-label small text-muted">Nu (&nu;)</label>
+                      <input type="number" id="sabr-nu" class="form-control form-control-sm" value="0.40" step="0.05">
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="form-label small text-muted">Rho (&rho;)</label>
+                      <input type="number" id="sabr-rho" class="form-control form-control-sm" value="-0.30" step="0.05">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4. Local Vol Block -->
+                <div id="params-lv" class="p-3 mb-3 bg-light rounded border" style="display: none;">
+                  <h6 class="fw-bold text-dark mb-2 small"><i class="bi bi-grid-3x3 me-1"></i> Dupire Surface Calibration</h6>
+                  <label class="form-label small text-muted">Surface Generator</label>
+                  <select id="lv-source" class="form-select form-select-sm mb-2" onchange="toggleLvSource()">
+                    <option value="heston" selected>Heston Baseline Surface</option>
+                    <option value="sabr">SABR Smile Surface</option>
+                  </select>
+                </div>
+
+                <button id="calc-btn" class="btn btn-primary w-100 py-2 fw-semibold" onclick="computeLivePrice()">
                   Calculate Option Price
                 </button>
-                <div id="calc-output-box" class="mt-3 p-3 text-center rounded bg-light border" style="display: none;">
-                  <span class="text-muted small d-block">Theoretical Model Value</span>
-                  <span id="calc-output-value" class="h3 fw-bold text-primary mb-0"></span>
+
+                <!-- RICH RESULTS DISPLAY -->
+                <div id="calc-output-box" class="mt-3 p-3 rounded bg-light border" style="display: none;">
+                  <div class="text-center mb-2">
+                    <span class="text-muted small d-block">Theoretical Price</span>
+                    <span id="calc-output-value" class="h3 fw-bold text-primary mb-0"></span>
+                  </div>
+                  <div class="row text-center border-top pt-2 mt-2 g-2">
+                    <div class="col-6">
+                      <span class="text-muted small d-block">European Baseline</span>
+                      <strong id="out-euro-price" class="text-dark small"></strong>
+                    </div>
+                    <div class="col-6">
+                      <span class="text-muted small d-block">Early Exercise Premium</span>
+                      <strong id="out-eep" class="text-success small"></strong>
+                    </div>
+                    <div class="col-12 mt-1">
+                      <span class="text-muted small">Expected Exercise Time: </span>
+                      <strong id="out-stop-time" class="text-secondary small"></strong>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </section><!-- End Quant Tools Section -->
+
     <!-- Pricer JavaScript Logic -->
     <script>
       const PRICER_API_BASE = "https://ppl-quant.onrender.com";
-      // Auto-unlock if the user authenticated earlier in this session
+
       window.addEventListener("DOMContentLoaded", () => {
         if (sessionStorage.getItem("quant_pricer_auth")) {
           showUnlockedPricer();
         }
       });
+
+      function toggleModelParams() {
+        const m = document.getElementById("model-val").value;
+        document.getElementById("params-bs").style.display = m === "black_scholes" ? "block" : "none";
+        document.getElementById("params-heston").style.display = m === "heston" ? "block" : "none";
+        document.getElementById("params-sabr").style.display = m === "sabr" ? "block" : "none";
+        document.getElementById("params-lv").style.display = m === "local_vol" ? "block" : "none";
+      }
+
+      function toggleLvSource() {
+        // Toggle helper if user switches LV generator
+      }
+
       async function unlockPricer() {
         const key = document.getElementById("pricer-pass-input").value.trim();
         const err = document.getElementById("lock-error");
@@ -832,34 +957,54 @@
           btn.innerText = "Unlock";
         }
       }
+
       function showUnlockedPricer() {
         document.getElementById("pricer-lock-screen").style.display = "none";
         document.getElementById("pricer-form-screen").style.display = "block";
       }
+
       function relockPricer() {
         sessionStorage.removeItem("quant_pricer_auth");
         document.getElementById("pricer-lock-screen").style.display = "block";
         document.getElementById("pricer-form-screen").style.display = "none";
         document.getElementById("pricer-pass-input").value = "";
       }
+
       async function computeLivePrice() {
         const key = sessionStorage.getItem("quant_pricer_auth");
         const btn = document.getElementById("calc-btn");
         const outBox = document.getElementById("calc-output-box");
         const outVal = document.getElementById("calc-output-value");
+
+        const model = document.getElementById("model-val").value;
         const payload = {
+          model: model,
+          exercise_type: document.getElementById("exercise-val").value,
+          option_type: document.getElementById("type-val").value,
           spot: parseFloat(document.getElementById("spot-val").value),
           strike: parseFloat(document.getElementById("strike-val").value),
           time_to_mat: parseFloat(document.getElementById("ttm-val").value),
-          vol: parseFloat(document.getElementById("vol-val").value),
           rate: parseFloat(document.getElementById("rate-val").value),
-          option_type: document.getElementById("type-val").value
+          dividend_yield: parseFloat(document.getElementById("div-val").value),
+          vol: parseFloat(document.getElementById("bs-vol").value || 0.20),
+          v0: parseFloat(document.getElementById("h-v0")?.value || 0.04),
+          kappa: parseFloat(document.getElementById("h-kappa")?.value || 2.0),
+          theta: parseFloat(document.getElementById("h-theta")?.value || 0.04),
+          sigma_v: parseFloat(document.getElementById("h-sigmav")?.value || 0.30),
+          rho: parseFloat(document.getElementById("h-rho")?.value || -0.50),
+          alpha: parseFloat(document.getElementById("sabr-alpha")?.value || 0.20),
+          beta: parseFloat(document.getElementById("sabr-beta")?.value || 1.0),
+          nu: parseFloat(document.getElementById("sabr-nu")?.value || 0.40),
+          sabr_rho: parseFloat(document.getElementById("sabr-rho")?.value || -0.30),
+          surface_source: document.getElementById("lv-source")?.value || "heston"
         };
+
         btn.disabled = true;
         btn.innerText = "Computing on Cloud Server...";
         outBox.style.display = "block";
         outVal.className = "text-muted small";
-        outVal.innerText = "Running proprietary PDE/BS solver...";
+        outVal.innerText = "Running quantitative engine...";
+
         try {
           const res = await fetch(`${PRICER_API_BASE}/api/price/option`, {
             method: "POST",
@@ -869,15 +1014,20 @@
             },
             body: JSON.stringify(payload)
           });
+
           if (res.status === 401) {
             relockPricer();
             alert("Session expired or password invalidated.");
             return;
           }
+
           const data = await res.json();
           if (res.ok && data.success) {
             outVal.className = "h3 fw-bold text-primary mb-0";
-            outVal.innerText = `${data.price.toFixed(4)}`;
+            outVal.innerText = `$${data.price.toFixed(4)}`;
+            document.getElementById("out-euro-price").innerText = `$${data.euro_price.toFixed(4)}`;
+            document.getElementById("out-eep").innerText = `+$${data.early_exercise_premium.toFixed(4)}`;
+            document.getElementById("out-stop-time").innerText = data.expected_exercise_time ? `${data.expected_exercise_time.toFixed(2)} yrs` : `${payload.time_to_mat} yrs`;
           } else {
             outVal.className = "text-danger small";
             outVal.innerText = "Calculation error.";
