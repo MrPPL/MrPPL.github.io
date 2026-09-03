@@ -2,6 +2,7 @@
 layout: post
 title: "From Markowitz's Efficient Frontier to CAPM"
 date: 2026-07-26
+permalink: /blog/modern-portfolio-theory-and-capm/
 categories: [CFA, Quantitative Finance, Portfolio Theory]
 tags: [CFA Level I, Markowitz, CAPM, Efficient Frontier, Python]
 excerpt: "We establish the connection between Markowitz’s mean-variance optimal portfolio, the Capital Allocation Line, and CAPM."
