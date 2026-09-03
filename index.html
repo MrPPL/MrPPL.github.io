@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -921,14 +921,17 @@
 
       function toggleModelParams() {
         const m = document.getElementById("model-val").value;
+        const lvSource = document.getElementById("lv-source").value;
+
         document.getElementById("params-bs").style.display = m === "black_scholes" ? "block" : "none";
-        document.getElementById("params-heston").style.display = m === "heston" ? "block" : "none";
-        document.getElementById("params-sabr").style.display = m === "sabr" ? "block" : "none";
         document.getElementById("params-lv").style.display = m === "local_vol" ? "block" : "none";
+
+        document.getElementById("params-heston").style.display = (m === "heston" || (m === "local_vol" && lvSource === "heston")) ? "block" : "none";
+        document.getElementById("params-sabr").style.display = (m === "sabr" || (m === "local_vol" && lvSource === "sabr")) ? "block" : "none";
       }
 
       function toggleLvSource() {
-        // Toggle helper if user switches LV generator
+        toggleModelParams();
       }
 
       async function unlockPricer() {
@@ -1023,7 +1026,15 @@
             return;
           }
 
-          const data = await res.json();
+          const resText = await res.text();
+          let data;
+          try {
+            data = JSON.parse(resText);
+          } catch (err) {
+            console.error("Backend did not return JSON. Response was:", resText);
+            throw new Error("Invalid JSON from backend");
+          }
+
           if (res.ok && data.success) {
             outVal.className = "h3 fw-bold text-primary mb-0";
             outVal.innerText = `$${data.price.toFixed(4)}`;
@@ -1032,11 +1043,13 @@
             document.getElementById("out-stop-time").innerText = data.expected_exercise_time ? `${data.expected_exercise_time.toFixed(2)} yrs` : `${payload.time_to_mat} yrs`;
           } else {
             outVal.className = "text-danger small";
-            outVal.innerText = "Calculation error.";
+            outVal.innerText = data.detail || "Calculation error.";
+            console.error("Backend error:", data);
           }
         } catch (e) {
+          console.error("Fetch/Parse Error:", e);
           outVal.className = "text-danger small";
-          outVal.innerText = "Error: " + e.message; console.error(e);
+          outVal.innerText = "Failed to connect to backend engine.";
         } finally {
           btn.disabled = false;
           btn.innerText = "Calculate Option Price";
